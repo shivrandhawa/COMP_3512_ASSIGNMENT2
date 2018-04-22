@@ -1,4 +1,4 @@
-//#include "Header.hpp"
+#include "Header.h"
 #include <stdio.h>
 #include <iostream>
 
@@ -7,6 +7,9 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
 
-	cout << "test1" << endl;
+	Hospital h;
+	PatientInfo p;
+	h.displayMenu();
+	std::cout << "ran to complition" << endl;;
 	return 0;
 }

@@ -6,26 +6,8 @@
 
 
 using namespace std;
-
-class Hospital {
-
-public:
-	Hospital();
-	void add_patient();
-	void getNextPatient();
-	void changeCategory();
-	void savePatientList();
-	void loadPaitentList();
-	void printPatientList();
-	void exitProgram();
-
-};
-
-
 class PatientInfo {
 public:
-	vector<PatientInfo> vec1;
-
 	string first;
 	string middle;
 	string last;
@@ -35,17 +17,66 @@ public:
 	int month;
 	int year;
 	int time;
+	int c_number;
+	string symp; //symptoms
 	PatientInfo() {
-		cout << "patientinfo consturctor." << endl;;
+		cout << "patientinfo consturctor" << endl;;
+	}
+	bool operator<(const PatientInfo& other) {
+		return c_number < other.c_number;
 	}
 
+	PatientInfo(
+		string f,
+		string m,
+		string l,
+		int yob,
+		int mob,
+		int dob,
+		int h_num,
+		int time_admitted,
+		string symps,
+		int category_number
+	) {
+		first = f;
+		middle = m;
+		last = l;
+		year = yob;
+		month = mob;
+		day = dob;
+		health_num = h_num;
+		time = time_admitted;
+		symp = symps;
+		c_number = category_number;
+
+		cout << " megaconstructor called" << endl;;
+	}
+
+};
+class Hospital {
+
+public:
+	bool exit = false;
+	Hospital();
+	vector<PatientInfo> vec1;
+	priority_queue<PatientInfo> p_q;
+
+	void add_patient();
+	void getNextPatient();
+	void changeCategory();
+	void savePatientList();
+	void loadPaitentList();
+	void printPatientList();
+	void exitProgram();
+	void displayMenu();
+	void exitSystem();
+	void qsort();
 
 };
 
 
 class Name :public PatientInfo {
 public:
-	vector<PatientInfo> vec1;
 
 	Name(string _first, string _mid, string _last) {
 		first = _first;
@@ -75,6 +106,7 @@ public:
 	Date();
 
 };
+
 
 
 
