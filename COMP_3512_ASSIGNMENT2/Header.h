@@ -36,7 +36,7 @@ public:
 	int year;
 	int time;
 	PatientInfo() {
-		cout << "patientinfo consturctor" << endl;;
+		cout << "patientinfo consturctor." << endl;;
 	}
 
 
